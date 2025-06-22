@@ -40,28 +40,17 @@ py api/weather.py
 ```
 Server runs on `http://localhost:5000`
 
-### API Endpoints
+### Public API Endpoints
 
 #### Get Current Weather
 ```bash
-curl "http://localhost:5000/weather?city=London"
+curl -sL "https://weathercli.vercel.app/weather?city=London"
 ```
 
 #### Get Forecast
 ```bash
-curl "http://localhost:5000/forecast?city=Paris&days=3"
+curl -sL "https://weathercli.vercel.app/forecast?city=Paris&days=3"
 ```
-
-#### Get ASCII Weather
-```bash
-curl "http://localhost:5000/ascii?city=Tokyo&mode=current"
-```
-
-#### API Info
-```bash
-curl "http://localhost:5000/"
-```
-
 
 
 [Live Demo](https://weathercli.vercel.app/)
