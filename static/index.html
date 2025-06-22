@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: 400;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .hero {
+            padding: 80px 0;
+            text-align: left;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #666666;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #333333;
+        }
+
+        .features {
+            padding: 60px 0;
+            background-color: #fafafa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature {
+            background-color: #ffffff;
+            padding: 30px;
+            border: 1px solid #e6e6e6;
+            border-radius: 8px;
+        }
+
+        .feature h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #666666;
+            margin-bottom: 15px;
+        }
+
+        .feature-code {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            color: #333333;
+            border-left: 3px solid #000000;
+        }
+
+        .endpoints {
+            padding: 60px 0;
+        }
+
+        .endpoints h2 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .endpoint {
+            margin-bottom: 20px;
+            padding: 25px;
+            border: 1px solid #e6e6e6;
+            border-radius: 8px;
+        }
+
+        .endpoint-method {
+            display: inline-block;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .endpoint-url {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .endpoint-desc {
+            margin-top: 10px;
+            color: #666666;
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid #e6e6e6;
+            text-align: center;
+            color: #666666;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">🌤️ Weather API</a>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#endpoints">API</a></li>
+                    <li><a href="https://github.com/your-repo">GitHub</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Simple weather data for developers</h1>
+                <p>Get current weather conditions and forecasts for any city worldwide. Clean JSON responses, beautiful ASCII displays, no API keys required.</p>
+                <a href="#endpoints" class="cta-button">View API Documentation</a>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <h2 style="font-size: 48px; font-weight: 600; text-align: center; margin-bottom: 15px;">Built for simplicity</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <h3>🌡️ Current Weather</h3>
+                        <p>Get real-time weather conditions including temperature, humidity, wind speed, and more.</p>
+                        <div class="feature-code">GET /weather?city=London</div>
+                    </div>
+                    <div class="feature">
+                        <h3>📅 Weather Forecasts</h3>
+                        <p>Access multi-day weather forecasts with detailed daily predictions up to 7 days.</p>
+                        <div class="feature-code">GET /forecast?city=Paris&days=5</div>
+                    </div>
+                    <div class="feature">
+                        <h3>🎨 ASCII Art Display</h3>
+                        <p>Get weather information formatted as beautiful ASCII art for terminal applications.</p>
+                        <div class="feature-code">GET /ascii?city=Tokyo&mode=current</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="endpoints" id="endpoints">
+            <div class="container">
+                <h2>API Endpoints</h2>
+                
+                <div class="endpoint">
+                    <div>
+                        <span class="endpoint-method">GET</span>
+                        <span class="endpoint-url">/</span>
+                    </div>
+                    <p class="endpoint-desc">Health check and API documentation</p>
+                </div>
+
+                <div class="endpoint">
+                    <div>
+                        <span class="endpoint-method">GET</span>
+                        <span class="endpoint-url">/weather</span>
+                    </div>
+                    <p class="endpoint-desc">Get current weather conditions for a specified city</p>
+                </div>
+
+                <div class="endpoint">
+                    <div>
+                        <span class="endpoint-method">GET</span>
+                        <span class="endpoint-url">/forecast</span>
+                    </div>
+                    <p class="endpoint-desc">Get weather forecast data for up to 7 days</p>
+                </div>
+
+                <div class="endpoint">
+                    <div>
+                        <span class="endpoint-method">GET</span>
+                        <span class="endpoint-url">/ascii</span>
+                    </div>
+                    <p class="endpoint-desc">Get weather information formatted as ASCII art</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Built with ❤️</p>
+        </div>
+    </footer>
+</body>
+</html> 
